@@ -26,11 +26,18 @@ function buildCards(data) {
         <div class="card-body">
           <h5 class="card-title">${data[i].name}</h5>
           <p class="card-text">${data[i].tagline}</p>
-          <a href="#" class="btn btn-primary">Details</a>
+          <button type="button" id="${data[i].id}" class="btn btn-primary">Details</button>
           <p class="card-text">id: ${data[i].id}</p>
         </div>
       </div>
     `;
+    let idNumber= data[i].id;
+    document.getElementById(idNumber).addEventListener("click", function(){
+        detailedCard(data,i);
+        console.log("test extended card");
+
+
+    });
   }
 }
 
@@ -69,6 +76,11 @@ async function randomBeerCall(){
 randomButton.addEventListener("click", function(){
   randomBeerCall(1).then(randomData => {
 
+   detailedCard(randomData,0);
+  })
+});
+
+function detailedCard(randomData,index){
     var randomCardHolder = document.getElementById('randomCardHolder');
 
     console.log(randomData);
@@ -76,15 +88,16 @@ randomButton.addEventListener("click", function(){
     randomCardHolder.innerHTML = "";
     randomCardHolder.innerHTML = `
       <div class="card m-4" style="width: 18rem;">
-        <img src="${randomData[0].image_url}" class="card-img-top bottleImage">
+        <img src="${randomData[index].image_url}" class="card-img-top bottleImage">
         <div class="card-body">
-          <h5 class="card-title">${randomData[0].name}</h5>
-          <p class="card-text">${randomData[0].tagline}</p>
+          <h5 class="card-title">${randomData[index].name}</h5>
+          <p class="card-text">${randomData[index].tagline}</p>
           <a href="#" class="btn btn-primary">Details</a>
-          <p class="card-text">id: ${randomData[0].id}</p>
+          <p class="card-text">id: ${randomData[index].id}</p>
         </div>
       </div>
     `;
 
-  })
-});
+
+
+}
