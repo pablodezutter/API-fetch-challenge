@@ -13,3 +13,6 @@ images verkleind
  ## loop in funcite zetten
  ## previousbutton activeren in script.js
  ## foutmelding button nagaan
+ Finally found the solution! linked to times to script!
+ ## randombeercall
+ Terug opvragen via nieuwe http...link
