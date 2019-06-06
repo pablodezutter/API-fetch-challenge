@@ -17,7 +17,7 @@ allBeerCall().then(data => {
 
   for (let i = 0 ; i < data.length ; i++){
     cardHolder.innerHTML += `
-      <div class="card" style="width: 18rem;">
+      <div class="card m-4" style="width: 18rem;">
         <img src="${data[i].image_url}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">${data[i].name}</h5>
