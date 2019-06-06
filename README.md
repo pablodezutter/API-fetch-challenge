@@ -15,4 +15,6 @@ images verkleind
  ## foutmelding button nagaan
  Finally found the solution! linked to times to script!
  ## randombeercall
- Terug opvragen via nieuwe http...link
+ Terug opvragen via nieuwe http-link
+ 
+ 
