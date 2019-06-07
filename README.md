@@ -16,5 +16,8 @@ images verkleind
  Finally found the solution! linked to times to script!
  ## randombeercall
  Terug opvragen via nieuwe http-link
- 
+ ##Javascript code voor details in cards
+ Nieuwe elementen via createElement, button linken met addEventsListener 
+for loop om elementen van ingredients weer te geven
+
  

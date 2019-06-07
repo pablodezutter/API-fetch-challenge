@@ -85,6 +85,8 @@ var currentPage = 1;
 var previousButton= document.getElementById("previousButton");
 var nextButton= document.getElementById("nextButton");
 var randomButton=document.getElementById("randomButton");
+var lessAlc= document.getElementById("lessAlc");
+var moreAlc= document.getElementById("moreAlc");
 
 nextButton.addEventListener("click", function() {
         if (currentPage < 13){
@@ -119,6 +121,22 @@ randomButton.addEventListener("click", function(){
    detailedCard(randomData,0);
   })
 });
+
+async function alcLessBeerCall(){
+  let result= await fetch (`https://api.punkapi.com/v2/beers?abv_lt=6`);
+  let alcLessData= await result.json();
+  return alcLessData;
+}
+
+lessAlc.addEventListener("click", function(){
+alcLessBeerCall().then(alcLessData =>{
+
+  buildCards(alcLessData);
+})
+
+});
+
+
 
 function detailedCard(randomData,index){
     var randomCardHolder = document.getElementById('randomCardHolder');
