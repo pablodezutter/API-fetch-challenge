@@ -7,14 +7,83 @@ async function allBeerCall(page){
   return data;
 }
 
+async function randomBeerCall(){
+  let result= await fetch( `https://api.punkapi.com/v2/beers/random`);
+
+  let randomData= await result.json();
+  return randomData;
+}
+
+
+//var dataToEdit="nog niets";
+
 // console.log
 allBeerCall(1).then(data => {
-  console.log(data);
-  console.log(data[0].name);
-  console.log(data.length);
-  console.log("eerste keer");
+  //console.log(data);
+  //console.log(data[0].name);
+  //console.log(data.length);
+  //console.log("eerste keer");
   buildCards(data);
+  //dataToEdit=data;
+
+
+  var currentPage = 1;
+  var previousButton= document.getElementById("previousButton");
+  var nextButton= document.getElementById("nextButton");
+  var randomButton=document.getElementById("randomButton");
+  var lessAlc= document.getElementById("lessAlc");
+  var moreAlc= document.getElementById("moreAlc");
+
+  nextButton.addEventListener("click", function() {
+          if (currentPage < 13){
+
+              currentPage= currentPage +1;
+              allBeerCall(currentPage).then(data => {
+                buildCards(data);
+              })
+          }
+  });
+
+  previousButton.addEventListener("click", function() {
+          if (currentPage > 1){
+
+              currentPage= currentPage -1;
+              allBeerCall(currentPage).then(data => {
+                buildCards(data);
+              })
+          }
+  });
+
+  randomButton.addEventListener("click", function(){
+    randomBeerCall(1).then(randomData => {
+
+     detailedCard(randomData,0);
+    })
+  });
+
+  lessAlc.addEventListener("click", function(){
+    function checkLess(x) {
+      return x.abv <= 6;
+    }
+    var lessData = data.filter(checkLess);
+    buildCards(lessData);
+  });
+
+  moreAlc.addEventListener("click", function(){
+    function checkMore(x) {
+      return x.abv > 6;
+    }
+    var moreData = data.filter(checkMore);
+    buildCards(moreData);
+  });
+
 })
+
+//console.log("zit data in dataToEdit?");
+//console.log("dataToEdit");
+//console.log(dataToEdit);
+//console.log("data : ");
+//console.log(data);
 
 function buildCards(data) {
   var cardHolder = document.getElementById('cardHolder');
@@ -74,56 +143,17 @@ function buildCards(data) {
     let idNumber= data[i].id;
     document.getElementById(idNumber).addEventListener("click", function(){
         detailedCard(data,i);
-        console.log("test extended card");
+      //  console.log("test extended card");
 
 
     });
   }
 }
 
-var currentPage = 1;
-var previousButton= document.getElementById("previousButton");
-var nextButton= document.getElementById("nextButton");
-var randomButton=document.getElementById("randomButton");
-
-nextButton.addEventListener("click", function() {
-        if (currentPage < 13){
-
-            currentPage= currentPage +1;
-            allBeerCall(currentPage).then(data => {
-              buildCards(data);
-            })
-        }
-});
-
-previousButton.addEventListener("click", function() {
-        if (currentPage > 1){
-
-            currentPage= currentPage -1;
-            allBeerCall(currentPage).then(data => {
-              buildCards(data);
-            })
-        }
-});
-
-async function randomBeerCall(){
-  let result= await fetch( `https://api.punkapi.com/v2/beers/random`);
-
-  let randomData= await result.json();
-  return randomData;
-}
-
-randomButton.addEventListener("click", function(){
-  randomBeerCall(1).then(randomData => {
-
-   detailedCard(randomData,0);
-  })
-});
-
 function detailedCard(randomData,index){
     var randomCardHolder = document.getElementById('randomCardHolder');
 
-    console.log(randomData);
+    //console.log(randomData);
 
     randomCardHolder.innerHTML = "";
     randomCardHolder.innerHTML = `
