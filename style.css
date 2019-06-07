@@ -1,6 +1,8 @@
 #cardHolder{
-background:url(images/beer-554619_1920.jpg) no-repeat !important;
-
+background-image:url("images/beer-554619_1920.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
 
 
@@ -26,4 +28,29 @@ margin-top: 10px;
 
 .smallerText{
   font-size: small;
+}
+#previousButton, #randomButton, #nextButton{
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-top: 20px;
+margin-bottom: 20px;
+margin-left: 25px;
+padding: 10px;
+}
+
+#dropdown{
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-top: 20px;
+margin-left: 70px;
+margin-bottom:20px;
+padding:10px;
+
+
+}
+
+
+#randomCardHolder{
+  padding: 10px;
+background-image:url("images/brew-1031484_1280.jpg");
+background-repeat: no-repeat;
+background-size: cover;
 }

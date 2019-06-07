@@ -21,5 +21,11 @@ images verkleind
 for loop om elementen van ingredients weer te geven
 #function alcLessBeerCall
 moeilijkheid: krijgen maar 25 per page
+#css stylen
+backgroundimage, attachment:fixed
+buttons meer margin en padding geven
+Bewust gekozen om niets meer te veranderen aan html en js.!
+(foutjes-> no title, h5,...)
+
 
  
