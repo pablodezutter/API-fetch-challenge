@@ -131,12 +131,38 @@ function detailedCard(randomData,index){
         <img src="${randomData[index].image_url}" class="card-img-top bottleImageBig">
         <div class="card-body">
           <h5 class="card-title">${randomData[index].name}</h5>
-          <p class="card-text">${randomData[index].tagline}</p>          
+          <p class="card-text">${randomData[index].tagline}</p>
+          <p class="card-text smallerText">${randomData[index].description}</p>
+          <p class="card-text">abv : ${randomData[index].abv}</p>
+          <p class="card-text">ibu : ${randomData[index].ibu}</p>
+          <p class="card-text">ingredients :
+            <br/>malt : <span id="malts"></span>
+            <br/>hops : <span id="hops"></span>
+            <br/>yeast : ${randomData[index].ingredients.yeast}
+          </p>
+
           <p class="card-text">id: ${randomData[index].id}</p>
         </div>
       </div>
     `;
 
+    var malts = document.getElementById("malts");
 
+    for (let i = 0 ; i < randomData[index].ingredients.malt.length ; i++){
+      malts.innerHTML+=randomData[index].ingredients.malt[i].name;
+      if ( i < (randomData[index].ingredients.malt.length - 1) ){
+        malts.innerHTML+=", ";
+      }
+    }
+
+
+    var hops = document.getElementById("hops");
+
+    for (let i = 0 ; i < randomData[index].ingredients.hops.length ; i++){
+      hops.innerHTML+=randomData[index].ingredients.hops[i].name;
+      if ( i < (randomData[index].ingredients.hops.length - 1) ){
+        hops.innerHTML+=", ";
+      }
+    }
 
 }
