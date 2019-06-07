@@ -20,6 +20,45 @@ function buildCards(data) {
   var cardHolder = document.getElementById('cardHolder');
   cardHolder.innerHTML="";
   for (let i = 0 ; i < data.length ; i++){
+
+    var divCard = document.createElement("div");
+    divCard.classList.add("card","m-4");
+    divCard.style.width="18rem";
+
+    var imgCard = document.createElement("img");
+    imgCard.src= data[i].image_url;
+    imgCard.classList.add("card-img-top", "bottleImage");
+    divCard.appendChild(imgCard);
+
+    var divCardBody = document.createElement("div");
+    divCardBody.classList.add("card-body");
+
+    var h5CardTitle = document.createElement("h5");
+    h5CardTitle.classList.add("card-title");
+    h5CardTitle.innerHTML=data[i].name;
+    divCardBody.appendChild(h5CardTitle);
+
+    var pCardText = document.createElement("p");
+    pCardText.classList.add("card-text");
+    pCardText.innerHTML = data[i].tagline;
+    divCardBody.appendChild(pCardText);
+
+    var buttonCard = document.createElement('button');
+    buttonCard.type="button";
+    buttonCard.id=data[i].id;
+    buttonCard.classList.add("btn", "btn-primary");
+    buttonCard.innerHTML="Details";
+    divCardBody.appendChild(buttonCard);
+
+    var pCardTextId = document.createElement("p");
+    pCardTextId.classList.add("card-text");
+    pCardTextId.innerHTML = data[i].id;
+    divCardBody.appendChild(pCardTextId);
+
+    divCard.appendChild(divCardBody);
+    cardHolder.appendChild(divCard);
+
+  /*
     cardHolder.innerHTML += `
       <div class="card m-4" style="width: 18rem;">
         <img src="${data[i].image_url}" class="card-img-top bottleImage">
@@ -30,7 +69,8 @@ function buildCards(data) {
           <p class="card-text">id: ${data[i].id}</p>
         </div>
       </div>
-    `;
+  */
+
     let idNumber= data[i].id;
     document.getElementById(idNumber).addEventListener("click", function(){
         detailedCard(data,i);
@@ -88,11 +128,10 @@ function detailedCard(randomData,index){
     randomCardHolder.innerHTML = "";
     randomCardHolder.innerHTML = `
       <div class="card m-4" style="width: 18rem;">
-        <img src="${randomData[index].image_url}" class="card-img-top bottleImage">
+        <img src="${randomData[index].image_url}" class="card-img-top bottleImageBig">
         <div class="card-body">
           <h5 class="card-title">${randomData[index].name}</h5>
-          <p class="card-text">${randomData[index].tagline}</p>
-          <a href="#" class="btn btn-primary">Details</a>
+          <p class="card-text">${randomData[index].tagline}</p>          
           <p class="card-text">id: ${randomData[index].id}</p>
         </div>
       </div>
