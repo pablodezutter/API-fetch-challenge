@@ -25,7 +25,10 @@ moeilijkheid: krijgen maar 25 per page
 backgroundimage, attachment:fixed
 buttons meer margin en padding geven
 Bewust gekozen om niets meer te veranderen aan html en js.!
-(foutjes-> no title, h5,...)
+(foutjes-> no title, h5, problem with abvfilter functions only with the first 25 cards of the first page...)
 
+
+Deployed site at:
+https://pablodezutter.github.io/API-fetch-challenge/
 
  
