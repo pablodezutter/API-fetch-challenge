@@ -19,5 +19,7 @@ images verkleind
  ##Javascript code voor details in cards
  Nieuwe elementen via createElement, button linken met addEventsListener 
 for loop om elementen van ingredients weer te geven
+#function alcLessBeerCall
+moeilijkheid: krijgen maar 25 per page
 
  

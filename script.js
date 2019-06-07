@@ -123,7 +123,7 @@ randomButton.addEventListener("click", function(){
 });
 
 async function alcLessBeerCall(){
-  let result= await fetch (`https://api.punkapi.com/v2/beers?abv_lt=6`);
+  let result= await fetch (`https://api.punkapi.com/v2/beers?abv_lt=6.1`);
   let alcLessData= await result.json();
   return alcLessData;
 }
